@@ -7,8 +7,7 @@ pipeline {
                         label "master"
                 }
         steps {
-                echo 'This stage will be executed first'
-                }
+                echo "Hi I am in non parallel stage"              }
         }
 
 	
@@ -16,10 +15,10 @@ pipeline {
             parallel {
                 stage('Test On Windows') {
                     agent {
-                        label "Windows_Node"
+                        label "New_node"
                     }
                     steps {
-                        echo "Task1 on Agent"
+                        echo "Hi I am on new node"
                     }
                     
                 }
@@ -28,7 +27,7 @@ pipeline {
                         label "master"
                     }
                     steps {
-						echo "Task1 on Master"
+						echo "Hi am running test on Master"
 					}
                 }
             }
